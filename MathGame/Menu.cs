@@ -20,6 +20,7 @@ A - Addition
 S - Subtraction
 M - Multiplication
 D - Division
+R - Random
 Q - Quit the program");
             Console.WriteLine("---------------------------------------------");
 
@@ -67,6 +68,15 @@ Q - Quit the program");
                     while(!Helpers.CheckDifficultyInput(difficulty)) difficulty = Helpers.GetInput("Difficulty: ");
 
                     gamesClass.DivisionGame(int.Parse(difficulty), int.Parse(questions_amount), nickname);
+                    break;
+                case "r":
+                    questions_amount = Helpers.GetInput("Amount of questions: ");
+                    while(!Helpers.CheckInteger(questions_amount)) questions_amount = Helpers.GetInput("Amount of questions: ");
+
+                    difficulty = Helpers.GetInput("Select the difficulty:\n1 - Easy\n2 - Medium\n3 - Hard\nDifficulty:");
+                    while(!Helpers.CheckDifficultyInput(difficulty)) difficulty = Helpers.GetInput("Difficulty: ");
+
+                    gamesClass.RandomGame(int.Parse(difficulty), int.Parse(questions_amount), nickname);
                     break;
                 case "q":
                     Console.WriteLine($"Goodbye, {nickname}");
